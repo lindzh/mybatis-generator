@@ -59,7 +59,7 @@
 	where
 	<#assign idx=0>
 	<#list u.columns as c>
-		${c.column}=${pre}${c.property}${end}
+		${c.column}=${pre}obj.${c.property}${end}
 		<#assign idx=idx+1>
 		<#if (idx<u.columns?size)> and </#if>
 	</#list>

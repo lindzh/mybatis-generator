@@ -26,7 +26,7 @@
 	<#assign has=false>
 	<update id="updateBy${u.name}" parameterType="${mybatis.className}">
 		update ${mybatis.table} set <#list u.updateColumns as c><#if has>,</#if>${c.column}=${pre}obj.${c.property}${end}<#assign has=true></#list>
-		where <#assign idx=0><#list u.columns as c>${c.column}=${pre}${c.property}${end}<#assign idx=idx+1><#if (idx<u.columns?size)> and </#if></#list>
+		where <#assign idx=0><#list u.columns as c>${c.column}=${pre}obj.${c.property}${end}<#assign idx=idx+1><#if (idx<u.columns?size)> and </#if></#list>
 	</update>
 	</#if>
 	

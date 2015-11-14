@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linda.common.mybatis.generator.UserInfoDao">
+	<resultMap id="UserInfoResultMap" type="com.linda.common.mybatis.generator.UserInfo">
+		<id property="id" column="id"/>
+		<result property="mobile" column="mobile"/>
+		<result property="sex" column="sex"/>
+		<result property="addTime" column="add_time"/>
+	</resultMap>
+	
+	<insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.linda.common.mybatis.generator.UserInfo">
+		insert into user_info(mobile,sex,add_time)
+		 values(#{obj.mobile},#{obj.sex},#{obj.addTime})
+	</insert>
+	
+	<select id="getById" resultMap="UserInfoResultMap">
+		select * from user_info where id=#{id}
+	</select>
+	
+	<update id="updateById" parameterType="com.linda.common.mybatis.generator.UserInfo">
+		update user_info set mobile=#{obj.mobile},sex=#{obj.sex},add_time=#{obj.addTime}
+		where id=#{obj.id}
+	</update>
+	
+	<delete id="deleteById">
+		delete from user_info where id=#{id}
+	</delete>
+	
+	<select id="getByMobile" resultMap="UserInfoResultMap">
+		select * from user_info where mobile=#{mobile}
+	</select>
+	
+	<update id="updateByMobile" parameterType="com.linda.common.mybatis.generator.UserInfo">
+		update user_info set sex=#{obj.sex},add_time=#{obj.addTime}
+		where mobile=#{obj.mobile}
+	</update>
+	
+	<delete id="deleteByMobile">
+		delete from user_info where mobile=#{mobile}
+	</delete>
+	
+
+	<select id="getListBySex" resultMap="UserInfoResultMap">
+		select * from user_info where
+		sex=#{sex}
+		order by id desc limit #{limit} offset #{offset}
+	</select>
+	
+	<select id="getCountBySex" resultType="long">
+		select count(*) from user_info where 
+		sex=#{sex}
+	</select>
+	
+	<select id="getOneBySex" resultMap="UserInfoResultMap">
+		select * from user_info where
+		sex=#{sex}
+		order by id desc limit 1
+	</select>
+	
+</mapper>
