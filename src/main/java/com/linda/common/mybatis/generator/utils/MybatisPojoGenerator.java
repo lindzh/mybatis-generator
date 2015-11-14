@@ -1,6 +1,8 @@
 package com.linda.common.mybatis.generator.utils;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -135,7 +137,7 @@ public class MybatisPojoGenerator {
 		}
 		
 		setUpdateUniqueColumns(pojo);
-		
+		pojo.setTime(genTime());
 		return pojo;
 	}
 	
@@ -155,6 +157,11 @@ public class MybatisPojoGenerator {
 				}
 			}
 		}
+	}
+	
+	private static String genTime(){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+		return format.format(new Date());
 	}
 	
 	private static UniqueBean genUniqueBean(String name,boolean select,boolean update,boolean delete,ColumnBean ...beans){

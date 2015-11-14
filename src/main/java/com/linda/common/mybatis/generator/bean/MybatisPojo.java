@@ -35,6 +35,8 @@ public class MybatisPojo {
 	
 	private ColumnBean primary;
 	
+	private String time;
+	
 	private List<ColumnBean> columns = new ArrayList<ColumnBean>();
 	
 	private List<UniqueBean> uniques = new ArrayList<UniqueBean>();
