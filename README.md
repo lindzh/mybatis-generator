@@ -32,7 +32,7 @@ insert生成如下
 ```java
 	public int addUserInfo(@Param("obj")UserInfo obj);
 ```
-查询xml如下
+insert xml如下
 ```xml
 <insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.linda.common.mybatis.generator.UserInfo">
 	insert into user_info(mobile,sex,add_time)
