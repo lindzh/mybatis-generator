@@ -1,4 +1,4 @@
-package com.linda.common.mybatis.generator;
+package com.linda.common.mybatis.generator.bean;
 
 import lombok.Data;
 

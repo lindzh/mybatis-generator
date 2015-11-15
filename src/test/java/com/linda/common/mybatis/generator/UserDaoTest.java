@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.linda.common.mybatis.generator.bean.UserInfo;
+import com.linda.common.mybatis.generator.dao.UserInfoDao;
 import com.linda.framework.log.util.JsonUtil;
 
 /**

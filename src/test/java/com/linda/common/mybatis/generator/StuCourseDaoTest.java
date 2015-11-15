@@ -5,6 +5,8 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import com.linda.common.mybatis.generator.bean.StuCourse;
+import com.linda.common.mybatis.generator.dao.StuCourseDao;
 import com.linda.framework.log.util.JsonUtil;
 
 public class StuCourseDaoTest extends AbstractTestCase{
