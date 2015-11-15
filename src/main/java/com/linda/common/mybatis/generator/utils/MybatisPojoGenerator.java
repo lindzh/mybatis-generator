@@ -111,25 +111,25 @@ public class MybatisPojoGenerator {
 							uniqueCache.put(unique.name(), uniqueBean);
 							pojo.getUniques().add(uniqueBean);
 						}
-					}else{
-						Index index = (Index)field.getAnnotation(Index.class);
-						if(index!=null){//一般索引
-							IndexBean bean = indexCache.get(index.name());
-							if(bean!=null){
-								bean.getColumns().add(cp);
-								bean.setCount(bean.isCount()&&index.count());
-								bean.setLimitOffset(bean.isLimitOffset()&&index.limitOffset());
-								bean.setSelectOne(bean.isSelectOne()&&index.selectOne());
-							}else{
-								bean = new IndexBean();
-								bean.getColumns().add(cp);
-								bean.setName(firstToUpperCase(index.name()));
-								bean.setCount(index.count());
-								bean.setLimitOffset(index.limitOffset());
-								bean.setSelectOne(index.selectOne());
-								indexCache.put(index.name(), bean);
-								pojo.getIndexes().add(bean);
-							}
+					}
+					
+					Index index = (Index)field.getAnnotation(Index.class);
+					if(index!=null){//一般索引
+						IndexBean bean = indexCache.get(index.name());
+						if(bean!=null){
+							bean.getColumns().add(cp);
+							bean.setCount(bean.isCount()&&index.count());
+							bean.setLimitOffset(bean.isLimitOffset()&&index.limitOffset());
+							bean.setSelectOne(bean.isSelectOne()&&index.selectOne());
+						}else{
+							bean = new IndexBean();
+							bean.getColumns().add(cp);
+							bean.setName(firstToUpperCase(index.name()));
+							bean.setCount(index.count());
+							bean.setLimitOffset(index.limitOffset());
+							bean.setSelectOne(index.selectOne());
+							indexCache.put(index.name(), bean);
+							pojo.getIndexes().add(bean);
 						}
 					}
 				}
