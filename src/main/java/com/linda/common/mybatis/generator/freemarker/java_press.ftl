@@ -24,7 +24,7 @@ public interface ${mybatis.daoClassName} {
 	</#if>
 	
 	<#--UNIQUE UPDATE-->
-	<#if u.update>
+	<#if (u.update&&u.updateColumns?size>0)>
 	public int updateBy${u.name}(@Param("obj")${mybatis.classSimpleName} obj);
 	</#if>
 	

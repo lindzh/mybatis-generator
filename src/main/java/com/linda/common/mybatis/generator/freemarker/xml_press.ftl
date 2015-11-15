@@ -24,7 +24,7 @@
 	</#if>
 	
 	<#--UNIQUE UPDATE-->
-	<#if u.update>
+	<#if (u.update&&u.updateColumns?size>0)>
 	<#assign has=false>
 	<update id="updateBy${u.name}" parameterType="${mybatis.className}">
 		update ${mybatis.table} set <#list u.updateColumns as c><#if has>,</#if>${c.column}=${pre}obj.${c.property}${end}<#assign has=true></#list>
