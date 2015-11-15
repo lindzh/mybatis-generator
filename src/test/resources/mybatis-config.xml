@@ -17,5 +17,6 @@
 
 	<mappers>
 		<mapper resource="sqlmap/UserInfoDao.xml"/>
+		<mapper resource="sqlmap/StuCourseDao.xml"/>
 	</mappers>
 </configuration>

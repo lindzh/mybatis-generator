@@ -19,12 +19,12 @@ public class StuCourse {
 	@Column(column="stu_id")
 	private long stuId;
 	
-	@Index(name="CountAndTime")
+	@Index(name="CourseAndTime")
 	@UniqueKey(name="UserAndCourse")
 	@Column(column="course_id")
 	private long courseId;
 	
-	@Index(name="CountAndTime")
+	@Index(name="CourseAndTime")
 	@Column(column="add_time")
 	private long addTime;
 	

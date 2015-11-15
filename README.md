@@ -210,15 +210,15 @@ public long getCountByCountAndTime(@Param("courseId")long courseId,@Param("start
 ```
 手动修改xml：
 ```xml
-	<select id="getListByCountAndTime" resultMap="StuCourseResultMap">
+	<select id="getListByCourseAndTime" resultMap="StuCourseResultMap">
 		select * from stu_course where
-		course_id=#{courseId} and add_time>=#{startTime} and add_time<=#{endTime}
+		course_id=#{courseId} and add_time&gt;=#{startTime} and add_time&lt;=#{endTime}
 		order by id desc limit #{limit} offset #{offset}
 	</select>
 	
-	<select id="getCountByCountAndTime" resultType="long">
+	<select id="getCountByCourseAndTime" resultType="long">
 		select count(*) from stu_course where 
-		course_id=#{courseId} and add_time>=#{startTime} and add_time<=#{endTime}
+		course_id=#{courseId} and add_time&gt;=#{startTime} and add_time&lt;=#{endTime}
 	</select>
 ```
 手动修改即可完成定制化需求

@@ -24,12 +24,12 @@
 	) values(
 		<#assign idx=0>
 		<#list mybatis.columns as c>
-			${pre}obj.${c.property}${end}
+			${pre}${c.property}${end}
 			<#assign idx=idx+1>
 			<#if (idx<mybatis.columns?size)>,</#if>
 		</#list>
 		<#if !mybatis.autoGenerate>
-			,${pre}obj.${mybatis.primary.property}${end}
+			,${pre}${mybatis.primary.property}${end}
 		</#if>
 	)
 	</insert>

@@ -14,7 +14,7 @@ import ${mybatis.className};
  */
 public interface ${mybatis.daoClassName} {
 
-	public int add${mybatis.classSimpleName}(@Param("obj")${mybatis.classSimpleName} obj);
+	public int add${mybatis.classSimpleName}(${mybatis.classSimpleName} obj);
 
 <#--unique operation 包含主键-->
 <#list mybatis.uniques as u>
