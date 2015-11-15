@@ -1,5 +1,5 @@
 # mybatis-generator
-auto generate select by id,index,unique,count and update,delete,insert dao and xml
+定义Java bean填写表和查询相关注解，自动生成增删改查，获取列表Dao和xml文件
 
 ##使用
 ```java
@@ -132,6 +132,7 @@ public int deleteByUserAndCourse(@Param("stuId")long stuId,@Param("courseId")lon
 ```
 如果不想生成update和delete
 @UniqueKey(name="UserAndCourse",select=true,update=false,delete=false)
+说明：unique查询，插入不一定要求数据库有该索引，如果没有唯一索引，请确保这些SQL执行不会异常
 
 ##@Index 分页查询，数量查询
 如用户表
@@ -222,7 +223,7 @@ public long getCountByCountAndTime(@Param("courseId")long courseId,@Param("start
 ```
 手动修改即可完成定制化需求
 说明：Index只是通过多个字段查询返回列表，数量或者返回第一个，关于排序默认使用id，定制化请手动修改xml
-
+index不要求数据库有相关索引，如果没有索引，查询会很慢
 
 
 
