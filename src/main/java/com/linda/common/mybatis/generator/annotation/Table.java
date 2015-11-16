@@ -18,7 +18,7 @@ public @interface Table {
 	 * 表名称
 	 * @return
 	 */
-	String name() default ""; 
+	String name();
 	
 	/**
 	 * 是否自动生primary key

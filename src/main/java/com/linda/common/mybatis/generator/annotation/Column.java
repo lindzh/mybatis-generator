@@ -18,6 +18,6 @@ public @interface Column {
 	 * 列名称
 	 * @return
 	 */
-	String column();
+	String column() default "";
 
 }

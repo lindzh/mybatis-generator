@@ -18,7 +18,7 @@ public @interface Index {
 	 * 如果是单列索引，则不需要填写，如果是联合索引，每列填写
 	 * @return
 	 */
-	String name() default "";
+	String name();
 	
 	/**
 	 * 查询是否分页，返回单个结果不需要分页，请填写false
