@@ -4,7 +4,7 @@
 
 	<groupId>com.linda.common</groupId>
 	<artifactId>mybatis-generator</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>mybatis-generator</name>
@@ -13,6 +13,33 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>simple</id>
+			<url>http://121.40.52.171:8081/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>simple-snapshots</id>
+			<url>http://121.40.52.171:8081/nexus/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -23,12 +50,17 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.2.8</version>
+			<version>3.2.9-meta</version>
+		</dependency>
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>2.6.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.linda.framework</groupId>
 			<artifactId>common-log</artifactId>
-			<version>1.0.2</version>
+			<version>1.0.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -68,6 +100,19 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>simple-releases</id>
+			<name>Simple Releases Repository</name>
+			<url>http://121.40.52.171:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>simple-snapshots</id>
+			<name>Simple Releases Repository</name>
+			<url>http://121.40.52.171:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<testResources>

@@ -20,7 +20,7 @@ public class UserDaoTest extends AbstractTestCase{
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = new UserInfo();
 		info.setAddTime(System.currentTimeMillis());
-		info.setMobile("15743128976");
+		info.setMobile("15746178976");
 		info.setSex("f");
 		info.setOther("hahah");
 		int addUserInfo = infoDao.addUserInfo(info);
