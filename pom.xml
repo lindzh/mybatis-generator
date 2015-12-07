@@ -26,7 +26,7 @@
 		</repository>
 		<repository>
 			<id>simple</id>
-			<url>http://121.40.52.171:8081/nexus/content/repositories/releases/</url>
+			<url>http://192.168.2.213:8081/nexus/content/repositories/releases/</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -34,7 +34,7 @@
 		</repository>
 		<repository>
 			<id>simple-snapshots</id>
-			<url>http://121.40.52.171:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://192.168.2.213:8081/nexus/content/repositories/snapshots/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -105,12 +105,12 @@
 		<repository>
 			<id>simple-releases</id>
 			<name>Simple Releases Repository</name>
-			<url>http://121.40.52.171:8081/nexus/content/repositories/releases</url>
+			<url>http://192.168.2.213:8081/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>simple-snapshots</id>
 			<name>Simple Releases Repository</name>
-			<url>http://121.40.52.171:8081/nexus/content/repositories/snapshots</url>
+			<url>http://192.168.2.213:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
