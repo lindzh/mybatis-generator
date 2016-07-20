@@ -25,5 +25,12 @@ public @interface Table {
 	 * @return
 	 */
 	boolean autoGeneratePrimaryKey() default true;
+	
+	
+	/**
+	 * 数据源选择  ，方便多数据源配置
+	 * @return
+	 */
+	String datasource() default "default";
 
 }
