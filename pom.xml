@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.2.10-meta</version>
+			<version>3.2.14-a</version>
 		</dependency>
 		<dependency>
 			<groupId>ognl</groupId>
