@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import com.linda.common.mybatis.generator.bean.StuCourse;
 import com.linda.common.mybatis.generator.dao.StuCourseDao;
-import com.linda.framework.log.util.JsonUtil;
 
 public class StuCourseDaoTest extends AbstractTestCase{
 	
@@ -31,14 +30,14 @@ public class StuCourseDaoTest extends AbstractTestCase{
 		long id = 1;
 		StuCourseDao courseDao = factory.openSession(true).getMapper(StuCourseDao.class);
 		StuCourse course = courseDao.getById(id);
-		System.out.println("id get:"+JsonUtil.toJson(course));
+		System.out.println("id get:"+JSONUtils.toJSON(course));
 		course.setScore(100);
 		course.setAddTime(System.currentTimeMillis());
 		course = courseDao.getById(id);
-		System.out.println("update get:"+JsonUtil.toJson(course));
+		System.out.println("update get:"+JSONUtils.toJSON(course));
 		courseDao.deleteById(id);
 		course = courseDao.getById(id);
-		System.out.println("delete get:"+JsonUtil.toJson(course));
+		System.out.println("delete get:"+JSONUtils.toJSON(course));
 	}
 	
 	public void testUnique(){
@@ -46,17 +45,17 @@ public class StuCourseDaoTest extends AbstractTestCase{
 		long courseId=10388;
 		StuCourseDao courseDao = factory.openSession(true).getMapper(StuCourseDao.class);
 		StuCourse course = courseDao.getByUserAndCourse(userId, courseId);
-		System.out.println("stu_course get:"+JsonUtil.toJson(course));
+		System.out.println("stu_course get:"+JSONUtils.toJSON(course));
 		
 		course.setScore(100);
 		course.setAddTime(System.currentTimeMillis());
 		courseDao.updateByUserAndCourse(course);
 		course = courseDao.getByUserAndCourse(userId, courseId);
-		System.out.println("stu_course update:"+JsonUtil.toJson(course));
+		System.out.println("stu_course update:"+JSONUtils.toJSON(course));
 		
 		courseDao.deleteByUserAndCourse(userId, courseId);
 		course = courseDao.getByUserAndCourse(userId, courseId);
-		System.out.println("stu_course delete:"+JsonUtil.toJson(course));
+		System.out.println("stu_course delete:"+JSONUtils.toJSON(course));
 	}
 	
 	@Test
@@ -66,7 +65,7 @@ public class StuCourseDaoTest extends AbstractTestCase{
 		long count = courseDao.getCountByCourseAndTime(courseId, 0, System.currentTimeMillis());
 		System.out.println("count:"+count);
 		List<StuCourse> courses = courseDao.getListByCourseAndTime(courseId, 0, System.currentTimeMillis(), 10, 0);
-		System.out.println("stu_course list:"+JsonUtil.toJson(courses));
+		System.out.println("stu_course list:"+JSONUtils.toJSON(courses));
 	}
 
 }

@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.linda.common.mybatis.generator.bean.UserInfo;
 import com.linda.common.mybatis.generator.dao.UserInfoDao;
-import com.linda.framework.log.util.JsonUtil;
 
 /**
  * 
@@ -33,7 +32,7 @@ public class UserDaoTest extends AbstractTestCase{
 		long id = 10001;
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = infoDao.getById(id);
-		System.out.println(JsonUtil.toJson(info));
+		System.out.println(JSONUtils.toJSON(info));
 	}
 	
 	/**
@@ -63,25 +62,25 @@ public class UserDaoTest extends AbstractTestCase{
 		String mobile = "15743128976";
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = infoDao.getByMobile(mobile);
-		System.out.println("getByMobile:"+JsonUtil.toJson(info));
+		System.out.println("getByMobile:"+JSONUtils.toJSON(info));
 	}
 	
 	public void testUpdateByMobile(){
 		String mobile = "15743128976";
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = infoDao.getByMobile(mobile);
-		System.out.println("getByMobile:"+JsonUtil.toJson(info));
+		System.out.println("getByMobile:"+JSONUtils.toJSON(info));
 		info.setAddTime(System.currentTimeMillis());
 		info.setSex("m");
 		infoDao.updateByMobile(info);
-		System.out.println("updateByMobile:"+JsonUtil.toJson(info));
+		System.out.println("updateByMobile:"+JSONUtils.toJSON(info));
 	}
 	
 	public void testDeleteByMobile(){
 		String mobile = "15743128976";
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = infoDao.getByMobile(mobile);
-		System.out.println("getByMobile:"+JsonUtil.toJson(info));
+		System.out.println("getByMobile:"+JSONUtils.toJSON(info));
 		infoDao.deleteByMobile(mobile);
 		System.out.println("delete By mobile ok");
 	}
@@ -90,7 +89,7 @@ public class UserDaoTest extends AbstractTestCase{
 	public void testLimit(){
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		List<UserInfo> list = infoDao.getListBySex("f", 10, 0);
-		System.out.println("getByList:"+JsonUtil.toJson(list));
+		System.out.println("getByList:"+JSONUtils.toJSON(list));
 	}
 	
 	
@@ -105,7 +104,7 @@ public class UserDaoTest extends AbstractTestCase{
 	public void testSelectOne(){
 		UserInfoDao infoDao = factory.openSession(true).getMapper(UserInfoDao.class);
 		UserInfo info = infoDao.getOneBySex("f");
-		System.out.println("one:"+JsonUtil.toJson(info));
+		System.out.println("one:"+JSONUtils.toJSON(info));
 	}
 
 }
