@@ -2,10 +2,7 @@ package com.linda.common.mybatis.generator.utils;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -66,10 +63,16 @@ public class MybatisPojoGenerator {
 		}
 		pojo.setTable(table.name());
 		pojo.setAutoGenerate(table.autoGeneratePrimaryKey());
-		
-		Field[] fields = clazz.getDeclaredFields();
-		if(fields==null||fields.length<1){
-			throw new GeneratorException(clazz.getName()+" fields can't be null");
+
+		//添加父类支持
+		ArrayList<Field> fields = new ArrayList<Field>();
+		Class cla = clazz;
+		while(cla!=Object.class){
+			Field[] fields1 = cla.getDeclaredFields();
+			if(fields1!=null&&fields1.length>0){
+				fields.addAll(Arrays.asList(fields1));
+			}
+			cla = cla.getSuperclass();
 		}
 		
 		//cache for merge unique and index
