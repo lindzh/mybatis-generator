@@ -24,6 +24,7 @@ public class UserInfo {
 	private String sex;
 	
 	@Column(column="add_time")
+	@UniqueKey(name="Mobile")
 	private long addTime;
 	
 	private String other;
