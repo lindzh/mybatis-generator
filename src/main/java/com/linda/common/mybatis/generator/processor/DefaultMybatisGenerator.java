@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import com.linda.common.mybatis.generator.code.SqlCodeGenerator;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
@@ -31,16 +32,19 @@ public class DefaultMybatisGenerator implements Service{
 		MybatisPojo mybatis = MybatisPojoGenerator.genPojo(clazz, daoPackage);
 		XmlCodeGenerator xmlCodeGenerator = new XmlCodeGenerator(freemarkerService,mybatis);
 		JavaCodeGenerator javaCodeGenerator = new JavaCodeGenerator(freemarkerService,mybatis);
+		SqlCodeGenerator sqlCodeGenerator = new SqlCodeGenerator(freemarkerService,mybatis);
 		String javaCode = javaCodeGenerator.parse();
 		String xmlCode = xmlCodeGenerator.parse();
-		String javaFileName = mybatis.getDaoClassName()+".java";
+        String sqlCode = sqlCodeGenerator.parse();
+        String javaFileName = mybatis.getDaoClassName()+".java";
 		String xmlFileName = mybatis.getDaoClassName()+".xml";
 		this.writeFile(javaCode, javaLocation+javaFileName);
 		this.writeFile(xmlCode, xmlLocation+xmlFileName);
 		logger.info("file generate success :"+javaFileName);
 		logger.info("file generate success :"+xmlFileName);
 		logger.info("gen success,please check mybatis config and add xml to list");
-		return mybatis;
+        System.out.println(sqlCode);
+        return mybatis;
 	}
 	
 	private void writeFile(String content,String file){

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.linda.common.mybatis.generator.bean.MybatisPojo;
 import com.linda.common.mybatis.generator.freemarker.FreemarkerService;
 import com.linda.common.mybatis.generator.freemarker.FtlHashSet;
+import com.linda.common.mybatis.generator.freemarker.FtlSqlType;
 
 /**
  * 
@@ -23,6 +24,7 @@ public abstract class AbstractGenerator {
 	public AbstractGenerator(FreemarkerService freemarkerService,MybatisPojo mybatisPojo){
 		this.freemarkerService = freemarkerService;
 		this.mybatisPojo = mybatisPojo;
+		params.put("sqlTypeFunc",new FtlSqlType());
 		params.put("pre", "#{");
 		params.put("end", "}");
 		params.put("mybatis", mybatisPojo);
