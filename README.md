@@ -1,7 +1,7 @@
 # mybatis-generator
 定义Java bean填写表和查询相关注解，自动生成增删改查，获取列表Dao和xml文件
 
-##使用
+## 使用
 ```java
 @Table(name="user_info",autoGeneratePrimaryKey=true)
 public class UserInfo {
@@ -24,7 +24,7 @@ public class UserInfo {
 
 }
 ```
-##@Table
+## @Table
 @Table(name="user_info",autoGeneratePrimaryKey=true)
 指定数据库中表名，autoGeneratePrimaryKey=true表示主键由数据库自动生成，每个bean都会生成insertSQLxml和Dao
 如果主键由数据库自动生成,会生成useGeneratedKeys="true" keyProperty="@PrimaryKeyField"，如下
@@ -45,7 +45,7 @@ insert xml如下
 @PrimaryKey主键字段映射，如果一个字段被指定为PrimaryKey，再指定为@Column是无效的
 
 
-##@PrimaryKey
+## @PrimaryKey
 @PrimaryKey
 private long id;
 数据库主键映射，每个table必须有唯一一个主键
@@ -75,7 +75,7 @@ public int deleteById(@Param("id")long id);
 </delete>
 ```
 
-##@UniqueKey
+## @UniqueKey
 @UniqueKey(name="Mobile")
 @Column(column="mobile")
 private String mobile;
@@ -134,7 +134,7 @@ public int deleteByUserAndCourse(@Param("stuId")long stuId,@Param("courseId")lon
 @UniqueKey(name="UserAndCourse",select=true,update=false,delete=false)
 说明：unique查询，插入不一定要求数据库有该索引，如果没有唯一索引，请确保这些SQL执行不会异常
 
-##@Index 分页查询，数量查询
+## @Index 分页查询，数量查询
 如用户表
 @Index(name="Sex",count=true,limitOffset=true,selectOne=true)
 @Column(column="sex")
@@ -224,6 +224,26 @@ public long getCountByCountAndTime(@Param("courseId")long courseId,@Param("start
 手动修改即可完成定制化需求
 说明：Index只是通过多个字段查询返回列表，数量或者返回第一个，关于排序默认使用id，定制化请手动修改xml
 index不要求数据库有相关索引，如果没有索引，查询会很慢
+
+## 自动生成创建表语句SQL
+
+mybatis generater 还可以根据pojo的定义生成创建表的语句，方便开发人员无需编写创建表的语句，直接使用生成的结果既可以完成数据库的操作。
+
+```
+create table banner_info (
+id bigint primary key auto_increment,
+accid varchar(100) default null,
+banner_type int default 0,
+banner_value_type int default 0,
+banner_value varchar(100) default null,
+banner_image varchar(100) default null,
+banner_title varchar(100) default null,
+banner_order int default 0,
+add_time bigint default 0,
+update_time bigint default 0,
+key accountType(accid,banner_type)
+);
+```
 
 
 
