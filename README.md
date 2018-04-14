@@ -34,7 +34,7 @@ insert生成如下
 ```
 insert xml如下
 ```xml
-<insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.linda.common.mybatis.generator.UserInfo">
+<insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.lindzh.mybatis.generator.UserInfo">
 	insert into user_info(mobile,sex,add_time)
 	values(#{obj.mobile},#{obj.sex},#{obj.addTime})
 </insert>
@@ -65,7 +65,7 @@ public int deleteById(@Param("id")long id);
 	select * from user_info where id=#{id}
 </select>
 
-<update id="updateById" parameterType="com.linda.common.mybatis.generator.UserInfo">
+<update id="updateById" parameterType="com.lindzh.mybatis.generator.UserInfo">
 	update user_info set mobile=#{obj.mobile},sex=#{obj.sex},add_time=#{obj.addTime}
 	where id=#{obj.id}
 </update>
@@ -121,7 +121,7 @@ public int deleteByUserAndCourse(@Param("stuId")long stuId,@Param("courseId")lon
 	select * from stu_course where stu_id=#{stuId} and course_id=#{courseId}
 </select>
 
-<update id="updateByUserAndCourse" parameterType="com.linda.common.mybatis.generator.StuCourse">
+<update id="updateByUserAndCourse" parameterType="com.lindzh.mybatis.generator.StuCourse">
 	update stu_course set add_time=#{obj.addTime},score=#{obj.score}
 	where stu_id=#{obj.stuId} and course_id=#{obj.courseId}
 </update>

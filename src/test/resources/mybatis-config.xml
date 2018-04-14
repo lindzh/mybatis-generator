@@ -20,5 +20,5 @@
 		<mapper resource="sqlmap/StuCourseDao.xml"/>
 	</mappers>
 	
-	<mapperDelegateProxy class="com.linda.common.mybatis.generator.SimpleDelegateProxy"/>
+	<mapperDelegateProxy class="com.lindzh.mybatis.generator.SimpleDelegateProxy"/>
 </configuration>
