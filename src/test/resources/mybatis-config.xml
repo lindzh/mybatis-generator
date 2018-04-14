@@ -7,10 +7,10 @@
 		<environment id="development">
 			<transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost/test?autoCommit=true" />
-                <property name="username" value="root" />
-                <property name="password" value="lindezhi" />
+                <property name="driver" value="org.h2.Driver" />
+                <property name="url" value="jdbc:h2:mem:test" />
+                <property name="username" value="sa" />
+                <property name="password" value="" />
             </dataSource>
 		</environment>
 	</environments>
@@ -20,5 +20,5 @@
 		<mapper resource="sqlmap/StuCourseDao.xml"/>
 	</mappers>
 	
-	<mapperDelegateProxy class="com.lindzh.mybatis.generator.SimpleDelegateProxy"/>
+	<!--<mapperDelegateProxy class="com.lindzh.mybatis.generator.SimpleDelegateProxy"/>-->
 </configuration>
