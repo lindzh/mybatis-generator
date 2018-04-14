@@ -1,7 +1,20 @@
 # mybatis-generator
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
 定义Java bean填写表和查询相关注解，自动生成增删改查，获取列表Dao和xml文件
 
 ## 使用
+
+使用maven引入jar包
+
+```
+<dependency>
+	<groupId>com.lindzh</groupId>
+	<artifactId>mybatis-generator</artifactId>
+	<version>1.0.3</version>
+<dependency>
+```
+
 ```java
 @Table(name="user_info",autoGeneratePrimaryKey=true)
 public class UserInfo {
