@@ -1,4 +1,4 @@
-# mybatis-generator [![Build Status](https://travis-ci.org/lindzh/mybatis-generator.svg?branch=master)](https://travis-ci.org/lindzh/mybatis-generator)[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+# mybatis-generator [![Build Status](https://travis-ci.org/lindzh/mybatis-generator.svg?branch=master)](https://travis-ci.org/lindzh/mybatis-generator)    [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)   [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.lindzh/mybatis-generator/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Ccom.lindzh)
 
 定义Java bean填写表和查询相关注解，自动生成增删改查，获取列表Dao和xml文件
 
